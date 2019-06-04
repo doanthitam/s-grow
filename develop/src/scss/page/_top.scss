@@ -1,0 +1,121 @@
+@charset "utf-8";
+.top {
+  &_mv {
+    position: relative;
+    .conceptmv {
+      background: #e9ebef;
+      width: 186px;
+      height: 100px;
+      position: absolute;
+      bottom: 6px;
+      right: 88px;
+      p {
+        position: relative;
+        text-align: center;
+        padding-top: 71px;
+        font-size: 14px;
+        color: $navy;
+        &:before {
+          content: "";
+          position: absolute;
+          background: url('../../images/movie_icon.png') no-repeat;
+          width: 42px;
+          height: 43px;
+          background-size: contain;
+          top: 23px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+  &_des {
+    display: flex;
+    h2 {
+      font-size: 36px;
+      line-height: 54px;
+      padding: 103px 103px 103px 152px;
+    }
+    p {
+      font-size: 19px;
+      padding: 72px 0 75px;
+      &:nth-of-type(1) {
+        padding-right: 72px;
+      }
+    }
+  }
+  section {
+    position: relative;
+    margin-bottom: 42px;
+    .txt {
+      background: url('../../images/bg_gr.png') no-repeat;
+      padding: 12px 0 7px 38px;;
+      width: 623px;
+      height: 114px;
+      background-size: contain;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      p {
+        font-size: 19px;
+        margin-bottom: 11px;
+        color: #fff;
+      }
+      h3 {
+        font-size: 28px;
+        color: #fff;
+      }
+    }
+  }
+  &_new {
+    overflow: hidden;
+    h3 {
+      font-size: 21px;
+      text-align: center;
+      position: relative;
+      &:after, &:before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 12px;
+      }
+      &:before {
+        left: -7%;
+        border-top: 12px solid #ff9000;
+        border-right: 14px solid transparent;
+        top: 11px;
+      }
+      &:after {
+        right: -7%;
+        border-bottom: 12px solid $navy;
+        border-left: 14px solid transparent;
+        bottom: 11px;
+      }
+    }
+    ul {
+      padding: 17px 0 90px;
+      &:after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      li {
+        float: left;
+        width: calc(100% / 3);
+        padding: 11px 38px 0 23px;
+        height: 115px;
+        &:not(:last-child) {
+          border-right: 2px dotted #6c6c6c;
+        }
+        time {
+          font-size:18px;
+          margin-bottom: 11px;
+        }
+        p {
+          font-size: 15px;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+}

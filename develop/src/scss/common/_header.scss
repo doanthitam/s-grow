@@ -2,94 +2,89 @@
 // header
 //------------------------------------------------------------------------
 @charset "utf-8";
-header {
-  .main_header {
-    display: flex;
-    .top {
-      h1 {
-        font-size: 0;
-        width: 312px;
-        margin: 42px 204px 0 0;
-        a {
-          display: block;
-        }
-        img {
-          width: 100%;
+.header {
+  &_main {
+    &:after {
+      content:"";
+      display: block;
+      clear: both;
+    }
+    .logo {
+      float: left;
+      font-size: 0;
+      width: 155px;
+      padding: 40px 0 36px 23px;
+      a {
+        display: block;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .nav_01 {
+      float: right;
+      padding: 54px 80px 0 0;
+      ul {
+        display: flex;
+        margin: 0 -30px 0 -30px;
+        li {
+          padding: 0 30px 0 30px;
+          a {
+            color: #000;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
         }
       }
     }
-    .nav {
+  }
+  &_top {
+    border-bottom: 2px solid #000;
+  }
+  .nav_02 {
+    ul {
       display: flex;
-      justify-content: space-between;
-      ul {
-        display: flex;
-        margin: 58px 0 0 0;
-        li {
-          padding: 0 14px 0 26px;
-          &:first-child {
-            padding-left: 0;
-          }
-          &:last-child {
-            padding: 0 0 0 40px;
-            margin-top: -4px;
-          }
-          a:not(.header_contact){
-            font-size: $p;
-            font-family: $font-web;
-            font-style: normal;
-            color: #000;
+      li {
+        padding: 28px 0 59px;
+        position: relative;
+        &:before {
+          content: "";
+          display: block;
+          background: $navy;
+          height: 6px;
+          position: absolute;
+          right: 100%;
+          left: 0;
+          top: 0;
+          transition-property: right;
+          transition-duration: 0.5s;
+          transition-timing-function: ease-out;
+        }
+        &:hover::before {
+          right: 0;
+          opacity: 0.8;
+        }
+        a {
+          padding: 8px 30px 8px 23px;
+          display: block;
+          position: relative;
+          font-size: 15px;
+          font-weight: bold;
+          color: #000;
+          &::before {
+            content: "";
+            position: absolute;
             display: block;
-            transition: all .3s ease-out;
-            span{
-              display: inline-block;
-              transform: translateY(0);
-              opacity: 1;
-              transition: all 0.3s ease;
-              position: relative;
-              &::before {
-                content: "";
-                position: absolute;
-                display: block;
-                top: 7px;
-                left: -16px;
-                width: 7px;
-                height: 7px;
-                border-top: 1px solid #000;
-                border-right: 1px solid #000;
-                transform: rotate(45deg);
-              }
-            }
-            &:hover{
-              opacity: 0.5;
-            }
-          }
-          .header_contact {
-            font-size: 12px;
-            padding-left: 9px;
-            width: 180px;
-            height: 31px;
-            line-height: 31px;
-            border-radius: 3px;
-            display: block;
-            background: #ededed;
-            position: relative;
-            text-align: center;
-            color: #000;
-            text-decoration: none;
-            &:hover {
-              opacity: 0.5;
-            }
-            ::before {
-              content: "";
-              position: absolute;
-              background: url('../../images/contact_icon_02.png')no-repeat;
-              width: 16px;
-              height: 12px;
-              top: 50%;
-              transform: translate(0 , -50%);
-              left: 36px;
-              background-size: contain;
-            }
+            top: 15px;
+            left: 0;
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid #000;
+            border-right: 2px solid #000;
+            transform: rotate(45deg);
           }
         }
       }
