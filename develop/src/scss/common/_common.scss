@@ -5,7 +5,9 @@ input,
 textarea {
   font-family: $font-web;
 }
-
+img {
+  width: 100%;
+}
 .container {
   min-width: 1280px;
 }
@@ -14,80 +16,139 @@ textarea {
   width: 100%;
   margin: 0 auto;
 }
-.heading_gr {
-  color: #31b487;
-  font-size: 26px;
-  font-weight: bold;
-  line-height: 24px;
-  position: relative;
-  padding-left: 18px;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 42px;
-    background: #000;
-    left: 0;
-    top: -10px;
-  }
-}
-.heading_navy {
-  background: #239683;
-  width: 100%;
-  height: 45px;
-  line-height: 45px;
-  color: #fff;
-  padding-left: 22px;
+.special_heading {
   font-size: 21px;
-  border-radius: 3px;
-}
-
-.gray_border {
-  font-size: 19px;
-  color: #000;
-  font-weight: bold;
-  position: relative;
-  padding-left: 25px;
-  &:after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 5px;
-    background: #c4c4c4;
-    top: 12px;
-    left: 0;
-  }
-}
-.btn_blue {
-  display: block;
-  font-weight: normal;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  font-family: $font-web;
-  width: 853px;
-  height: 109px;
-  background: #0c99d8;
-  line-height: 109px;
-  text-decoration: none;
-  font-size: 30px;
-  color: #fff;
-  margin: 0 auto;
   position: relative;
-  padding-left: 53px;
-  &:after {
+  &:after, &:before {
     content: "";
     position: absolute;
-    display: block;
-    background: url('../../images/large_icon_contact.png') no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 27px;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 251px;
+    width: 50%;
+    height: 12px;
+  }
+  &:before {
+    left: -7%;
+    border-top: 12px solid #ff9000;
+    border-right: 14px solid transparent;
+    top: 11px;
+  }
+  &:after {
+    right: -7%;
+    border-bottom: 12px solid $navy;
+    border-left: 14px solid transparent;
+    bottom: 11px;
   }
 }
-img {
+.header_main {
+  position: relative;
+  .menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+  }
+}
+.menu_btn {
+  position: relative;
+  width: 29px;
+  height: 28px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  margin: 0 auto;
+  cursor: pointer;
+  z-index: 9999;
+  span {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: $navy;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2) {
+      top: 11px;
+    }
+    &:nth-child(3) {
+      top: 22px;
+    }
+  }
+  &.is-active {
+    span {
+      &:nth-child(1) {
+        top: 10px;
+        transform: rotate(135deg);
+        transition: .7s ease;
+        background: $navy;
+        opacity: 0.8;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+        right: 100px;
+        background: $navy;
+      }
+      &:nth-child(3) {
+        top: 10px;
+        transform: rotate(-135deg);
+        transition: .7s ease;
+        background: $navy;
+      }
+    }
+  }
+}
+.cv_nav {
+  background: rgba(0, 0, 0, 0.8);
   width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding-top: 100px;
+  z-index: 9;
+  .nav {
+    overflow: hidden;
+    text-align: center;
+    ul {
+      li {
+        margin-bottom: 50px;
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 40px;
+          position: relative;
+          line-height: 1;
+          &:before {
+            position: absolute;
+            content: "";
+            z-index: -1;
+            left: 0;
+            right: 100%;
+            bottom: 0;
+            background: #fff;
+            height: 2px;
+            transition-property: right;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-out;
+          }
+          &:hover::before {
+            right: 0;
+          }
+          em {
+            font-family: "Yugothic";
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+  &.is_active {
+    opacity: 0;
+    transition: .5s ease-in-out;
+  }
+  &.active {
+    opacity: 1;
+  }
 }

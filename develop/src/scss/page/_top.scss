@@ -69,29 +69,6 @@
   }
   &_new {
     overflow: hidden;
-    h3 {
-      font-size: 21px;
-      text-align: center;
-      position: relative;
-      &:after, &:before {
-        content: "";
-        position: absolute;
-        width: 50%;
-        height: 12px;
-      }
-      &:before {
-        left: -7%;
-        border-top: 12px solid #ff9000;
-        border-right: 14px solid transparent;
-        top: 11px;
-      }
-      &:after {
-        right: -7%;
-        border-bottom: 12px solid $navy;
-        border-left: 14px solid transparent;
-        bottom: 11px;
-      }
-    }
     ul {
       padding: 17px 0 90px;
       &:after {
